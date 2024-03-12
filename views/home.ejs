@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Student Home</title>
+    <style>
+        main {
+            background-image: url(/assets/students.png);
+            background-position: top;
+            background-repeat: repeat;
+            background-size: fill;
+        }
+    </style>
+</head>
+
+<body class="min-h-dvh pb-5 bg-slate-100">
+    <header class="bg-emerald-700 text-white p-5 border-b-2 border-b-yellow-300">
+        <h1 class="text-2xl text-center font-semibold">Mrs. Stella Academy</h1>
+    </header>
+    <main class="h-36">
+        <nav class="h-10 bg-black bg-opacity-35 text-white flex items-center gap-5 justify-center font-semibold">
+            <a class="active" href="/">LOGOUT</a>
+        </nav>
+    </main>
+
+    <section
+        class="shadow grid place-content-center gap-4 p-4 border-2 border-emerald-700 w-96 md:w-[30rem] rounded mx-auto mt-8">
+        <h1 class="text-center text-emerald-700 font-bold text-3xl">Welcome, <%= student.firstName %></h1>
+
+        <div class="text-slate-700 text-center px-3">
+            <p>This is the Stella Academy Homepage</p>
+        </div>
+
+
+        <div class="text-slate-700 text-center">
+            <p>Your Student Id: <span class="font-bold text-emerald-700">
+                    <%= student.studentId %>
+                </span>
+            </p>
+        </div>
+    </section>
+
+    <section class="w-dvw px-5 py-3 flex items-center gap-10 overflow-x-scroll mt-5">
+        <div class="flex-shrink-0 cursor-pointer">
+            <div class="w-96 h-52">
+                <img src="/assets/fees.jpeg" alt="fees" class="w-full h-full object-cover">
+            </div>
+            <p class="font-bold text-emerald-700 text-center">Fees</p>
+        </div>
+
+        <div class="flex-shrink-0 cursor-pointer">
+            <div class="w-96 h-52">
+                <img src="/assets/facility.jpg" alt="fees" class="w-full h-full object-cover">
+            </div>
+            <p class="font-bold text-emerald-700 text-center">Facilities</p>
+        </div>
+
+        <div class="flex-shrink-0 cursor-pointer">
+            <div class="w-96 h-52">
+                <img src="/assets/clubs.png" alt="fees" class="w-full h-full object-cover">
+            </div>
+            <p class="font-bold text-emerald-700 text-center">Clubs and Societies</p>
+        </div>
+
+        <div class="flex-shrink-0 cursor-pointer">
+            <div class="w-96 h-52">
+                <img src="/assets/students.png" alt="fees" class="w-full h-full object-cover">
+            </div>
+            <p class="font-bold text-emerald-700 text-center">Students</p>
+        </div>
+
+        <div class="flex-shrink-0 cursor-pointer">
+            <div class="w-96 h-52">
+                <img src="/assets/image.png" alt="fees" class="w-full h-full object-cover">
+            </div>
+            <p class="font-bold text-emerald-700 text-center">Teachers</p>
+        </div>
+    </section>
+</body>
+
+</html>

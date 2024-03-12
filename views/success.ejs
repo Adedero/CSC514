@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Student Registration</title>
+    <style>
+        .active {
+            color: rgb(253 224 71);
+        }
+
+        main {
+            background-image: url(/assets/students.png);
+            background-position: top;
+            background-repeat: repeat;
+            background-size: fill;
+        }
+    </style>
+</head>
+
+<body class="min-h-dvh pb-5">
+    <header class="bg-emerald-700 text-white p-5 border-b-2 border-b-yellow-300">
+        <h1 class="text-2xl text-center font-semibold">Mrs. Stella Academy</h1>
+    </header>
+    <main class="h-36"></main>
+
+    <section class="grid place-content-center gap-4 p-4 border-2 border-emerald-700 w-96 md:w-[30rem] rounded mx-auto mt-8">
+        <h1 class="text-center text-emerald-700 font-bold text-3xl">Success!</h1>
+
+        <div class="text-slate-700 text-center px-3">
+            <p>Your student account has been created stuccessfully!</p>
+            <br>
+            <p>Here are your login details, please keep them safe:</p>
+        </div>
+
+        
+        <div class="text-slate-700 text-center">
+            <p>Student Id: <span class="font-bold text-emerald-700">
+                <%= studentId %>
+            </span></p>
+            <p>Password: <span class="font-bold text-emerald-700">
+                <%= password %>
+            </span></p>
+        </div>
+
+        <div class="text-center">
+            <p class="text-slate-700">Login to continue.</p>
+            <a href="/">
+                <button type="button" class="w-40 text-center bg-emerald-700 text-white rounded h-11 hover:bg-emerald-800 transition-colors mt-2">Login</button>
+            </a>
+        </div>
+    </section>
+</body>
+
+</html>

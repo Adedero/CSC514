@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Student Login</title>
+    <style>
+        .active {
+            color: rgb(253 224 71);
+        }
+        main {
+            background-image: url(/assets/students.png);
+            background-repeat: repeat;
+            background-size: fill;
+        }
+    </style>
+</head>
+<body class="min-h-dvh pb-5">
+    <header class="bg-emerald-700 text-white p-5 border-b-2 border-b-yellow-300">
+        <h1 class="text-2xl text-center font-semibold">Mrs. Stella Academy</h1>
+    </header>
+    <main class="h-32">
+        <nav class="h-10 bg-black bg-opacity-35 text-white flex items-center gap-5 justify-center font-semibold">
+            <a class="active" href="/">LOGIN</a>
+            <a href="/register">REGISTER</a>
+        </nav>        
+    </main>
+    <div class="grid place-content-center text-center">
+        <p class="text-sm font-medium mt-2"> A Secondary School Like No Other </p>
+        <p class="bg-emerald-700 w-fit p-3 text-white mt-3">Knowlegde and Wisdom; Truth and Power</p>
+    </div>
+
+    <% if (message) { %>
+        <div class="w-fit p-4 bg-red-600 rounded text-white text-center fixed left-1/2 -translate-x-1/2 top-36">
+            <%= message %>
+        </div>
+    <% } %>
+
+   
+    <section class="grid place-content-center gap-4 h-80 border-2 border-emerald-700 w-96 rounded mx-auto mt-6">
+        <h1 class="text-center text-emerald-700 font-bold text-xl">Login</h1>
+        <form action="/auth/login" method="POST">
+            <div class="flex flex-col gap-1">
+                <label for="studentId" class="text-slate-700 font-medium">Student ID</label>
+                <input type="text" name="studentId" id="studentId" required class="rounded px-4 py-2 h-11 border border-emerald-700 outline-none text-slate-700 w-80">
+            </div>
+
+            <div class="flex flex-col gap-1 mt-5">
+                <label for="password" class="text-slate-700 font-medium">Password</label>
+                <input type="password" name="password" id="password" required class="rounded px-4 py-2 h-11 border border-emerald-700 outline-none text-slate-700 w-80">
+            </div>
+
+            <div class="flex mt-5">
+                <button type="submit" class="w-full text-center bg-emerald-700 text-white rounded h-11 hover:bg-emerald-800 transition-colors">Submit</button>
+            </div>
+        </form>
+    </section>
+
+    <div class="text-center mt-2">
+        Don't have an account, <a class="font-bold text-emerald-700" href="/register">register</a> instead.
+    </div>
+</body>
+</html>
