@@ -1,43 +1,58 @@
 const express = require('express');
 const router = express.Router();
 
-const Student = require('../models/student.model')
+const User = require('../models/user.model')
+const Customer = require('../models/customer.model')
 
 router.post('/register', async(req, res) => {
+    //const fullName = `${req.body.firstName}${req.body.lastName}`
     try {
-        const student = new Student(req.body)
-        await student.save()
-        res.render('success', {
-            studentId: student.studentId,
-            password: student.password 
+        /* const user = await User.findOne({
+            name: { $regex: fullName, $options: 'i' }
         })
+        if (!user) {
+            return res.render('/', { message: 'You think say you wise abi? Go and pay the N1000' })
+        } */
+        const customer = new Customer(req.body)
+        await customer.save()
+        return res.render('login', { message: 'Please log in.' })
     } catch (error) {
-        res.status(500).send(error)
+        return res.status(500).send(error)
     }
 });
 
 router.post('/login', async(req, res) => {
     try {
-        const student = await Student.findOne({
-            studentId: req.body.studentId,
+        const customer = await Customer.findOne({
+            username: req.body.username,
             password: req.body.password
         })
-        if (student) {
-            res.render('home', {
-                student: {
-                    firstName: student.firstName,
-                    lastName: student.lastName,
-                    studentId: student.studentId
-                }
-            })
+        if (customer) {
+            return res.render('home', {customer})
         } else {
-            res.render('index', {
+            return res.render('login', {
                 message: 'Wrong username or password'
             })
         }
     } catch (error) {
-        res.status(500).send(error)
+        return res.status(500).send(error)
     }
 })
 
+router.post('/payments', async(req, res) => {
+    const value = req.body.name.trim().toUpperCase()
+    try {
+        const user = await User.findOne({ name: value })
+        if (!user) {
+            return res.status(404).render('index', {
+                message: 'No paid user with this name exists. Have you paid your N1000?'
+            })
+        }
+
+        return res.render('register')
+    } catch (error) {
+        console.error(error)
+        return res.status(500).send(error)
+    }
+})
 module.exports = router

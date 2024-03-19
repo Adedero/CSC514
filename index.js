@@ -22,12 +22,15 @@ app.get('/', (req, res) => {
     res.render('index', { message: null });
 });
 
+app.get('/login', (req, res) => {
+    res.render('login', { message: null });
+})
 app.get('/register', (req, res) => {
     res.render('register');
 })
 
-app.get('/success', (req, res) => {
-    res.render('success');
+app.get('/home', (req, res) => {
+    res.render('home');
 })
 
 app.listen(process.env.PORT, () => {
