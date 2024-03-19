@@ -3,10 +3,25 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const ejs = require('ejs');
+const users = require('./paid')
+const User = require('./models/user.model')
 
 mongoose.connect(process.env.MONGODB_URI)
-    .then(() => console.log('Database connection established'))
+    .then(() => {
+        console.log('Database connection established')
+    })
     .catch((err) => console.error(err));
+
+async function addUsers() {
+    for (let user of users) {
+        const existingUser = await User.findOne({ name: user.name })
+        if (!existingUser) {
+            await User.create({ name: user.name.toUpperCase() })
+        }
+    }
+}
+
+addUsers()
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));

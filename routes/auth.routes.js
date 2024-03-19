@@ -44,12 +44,12 @@ router.post('/payments', async(req, res) => {
     try {
         const user = await User.findOne({ name: value })
         if (!user) {
-            return res.status(404).render('index', {
+            return res.status(404).redirect('/', {
                 message: 'No paid user with this name exists. Have you paid your N1000?'
             })
         }
 
-        return res.render('register')
+        return res.redirect('/register')
     } catch (error) {
         console.error(error)
         return res.status(500).send(error)

@@ -1,4 +1,4 @@
-[
+const users = [
     {
         "name": "UMEH"
     },
@@ -51,5 +51,8 @@
         "name": "ANUSIEM"
     },
     { "name": "EMMA-EJIKEME" },
-    { "name": "SAMUEL" }
+    { "name": "SAMUEL" },
+    { "name": "ONUMAJURU" }
 ]
+
+module.exports = users
