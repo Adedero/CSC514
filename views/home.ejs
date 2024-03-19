@@ -38,10 +38,10 @@
     </header>
 
     <section style="height: calc(100dvh - 5rem);" class="flex items-center justify-center gap-3 p-10">
-        <div class="rounded border-2 border-slate-700 w-96 h-full flex flex-col items-center gap-3 p-4">
+        <div class="rounded border-2 border-slate-700 w-fit h-full flex flex-col items-center gap-3 p-4">
             <div class="flex flex-col items-center w-full">
                 <img src="/assets/user.svg" alt="user" class="w-20">
-                <div class="rounded bg-slate-700 uppercase text-white font-semibold p-2 mt-3">
+                <div class="rounded bg-slate-700 uppercase text-white font-semibold p-2 mt-1">
                     <%= `${customer.firstName} ${customer.lastName}` %>
                 </div>
                 <p class="italic text-rose-700"><%= customer.username %></p>
