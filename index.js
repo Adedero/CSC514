@@ -6,6 +6,17 @@ const ejs = require('ejs');
 const users = require('./paid')
 const User = require('./models/user.model')
 
+const names = "NJOKU NWANKA CHIBUZOR OKWARA MMASICHUKWU OHERI"
+const namesArray = names.split(" ")
+let obj = {}
+function addNames() {
+    for (let name of namesArray) {
+        obj.name = name
+        users.push(obj)
+    }
+}
+
+addNames()
 async function addUsers() {
     for (let user of users) {
         const existingUser = await User.findOne({ name: user.name })
