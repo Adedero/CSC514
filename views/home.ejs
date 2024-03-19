@@ -22,13 +22,13 @@
     <header class="bg-slate-700 text-white p-5 flex items-center justify-between h-20 bg-">
         <div class="flex items-center gap-1">
             <span class="material-symbols-rounded">account_balance</span>
-            <h1 class="text-2xl font-bold">Unity Bank</h1>
+            <h1 class="text-xl md:text-2xl font-bold">Unity Bank</h1>
         </div>
     
-        <div class="flex items-center gap-3">
-            <a href="#" class="font-bold">HOME</a>
-            <a href="#">ABOUT</a>
-            <a href="#">ACCOUNT</a>
+        <div class="flex items-center gap-3 text-xs">
+            <a href="#" class="hidden md:block font-bold">HOME</a>
+            <a href="#" class="hidden md:block ">ABOUT</a>
+            <a href="#" class="hidden md:block ">ACCOUNT</a>
             <a href="/login">
                 <button class="text-white text-sm rounded font-semibold uppercase border border-rose-700 bg-rose-700 p-2">
                     Logout
@@ -37,8 +37,8 @@
         </div>
     </header>
 
-    <section style="height: calc(100dvh - 5rem);" class="flex items-center justify-center gap-3 p-10">
-        <div class="rounded border-2 border-slate-700 w-96 h-full flex flex-col items-center gap-3 p-4">
+    <section style="height: calc(100dvh - 5rem);" class="overflow-y-scroll flex items-center justify-center gap-3 p-5 md:p-10">
+        <div class="rounded border-2 border-slate-700 w-96 h-full overflow-y-scroll flex flex-col items-center gap-3 p-4">
             <div class="flex flex-col items-center w-full">
                 <img src="/assets/user.svg" alt="user" class="w-20">
                 <div class="rounded bg-slate-700 uppercase text-white font-semibold p-2 mt-1">

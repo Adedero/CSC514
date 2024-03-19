@@ -22,26 +22,26 @@
     <header class="bg-slate-700 text-white p-5 flex items-center justify-between h-20 bg-">
         <div class="flex items-center gap-1">
             <span class="material-symbols-rounded">account_balance</span>
-            <h1 class="text-2xl font-bold">Unity Bank</h1>
+            <h1 class="text-xl md:text-2xl font-bold">Unity Bank</h1>
         </div>
     
         <div class="flex items-center gap-3">
             <a href="/login">
-                <button class="text-white text-sm rounded font-semibold uppercase border border-rose-700 bg-rose-700 p-2">
+                <button class="text-white text-sm  md:text-sm rounded font-semibold uppercase border border-rose-700 bg-rose-700 p-2">
                     Login
                 </button>
             </a>
             <a href="/register">
-                <button class="text-sm uppercase font-semibold rounded border border-white p-2">Register</button>
+                <button class="text-xs md:text-sm uppercase font-semibold rounded border border-white p-2">Register</button>
             </a>
         </div>
     </header>
 
-    <main class="w-dvw grid md:grid-cols-2" style="height: calc(100dvh - 5rem);">
-        <section class="h-full bank"></section>
+    <main class="overflow-y-scroll w-dvw p-5 md:p-0 grid lg:grid-cols-2" style="height: calc(100dvh - 5rem);">
+        <section class="hidden md:block h-full bank"></section>
     
         <section class="h-full flex items-center justify-center flex-col">
-            <div class="grid place-content-center gap-4 p-4 border-2 border-slate-700 w-[70%] rounded">
+            <div class="grid place-content-center gap-4 p-4 border-2 border-slate-700 md:w-[70%] rounded">
                 <h1 class="text-center text-rose-700 font-bold text-xl">Register</h1>
 
                 <form action="/auth/register" method="POST" class="flex items-center justify-between flex-wrap gap-2">
