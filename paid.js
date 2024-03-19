@@ -55,16 +55,6 @@ const users = [
     { "name": "ONUMAJURU" }
 ]
 
-const names = "NJOKU NWANKA CHIBUZOR OKWARA MMASICHUKWU"
-const namesArray = names.split(" ")
-let obj = {}
-function addNames() {
-    for (let name of namesArray) {
-        obj.name = name
-        users.push(obj)
-    }
-}
 
-addNames()
 
 module.exports = users
