@@ -29,10 +29,12 @@ router.post('/login', async(req, res) => {
         })
         if (customer) {
             res.render('home', {customer})
+            return
         } else {
             res.render('login', {
                 message: 'Wrong username or password'
             })
+            return
         }
     } catch (error) {
         res.status(500).send(error)
@@ -47,6 +49,7 @@ router.post('/payments', async(req, res) => {
              res.status(404).render('index', {
                 message: 'No paid user with this name exists. Have you paid your N1000?'
             })
+            return
         }
         res.render('register')
     } catch (error) {
