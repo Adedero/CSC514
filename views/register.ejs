@@ -17,109 +17,128 @@
         }
     </style>
 </head>
-
-<body class="min-h-dvh">
-    <header class="bg-slate-700 text-white p-5 flex items-center justify-between h-20 bg-">
-        <div class="flex items-center gap-1">
-            <span class="material-symbols-rounded">account_balance</span>
-            <h1 class="text-xl md:text-2xl font-bold">Unity Bank</h1>
+<% if (!isAuthenticated) { %>
+    <body class="min-h-dvh grid place-content-center">
+        <div class="w-[80dvw] md:w-[30rem] p-4 bg-rose-700 rounded text-white text-center absolute left-1/2 -translate-x-1/2 top-16">
+           You are not authorized to view this page. Please check your payment status.
         </div>
+
+        <a href="/">
+            <button class="text-white text-sm rounded font-semibold uppercase border border-rose-700 bg-rose-700 p-2">
+                Check
+            </button>
+        </a>
+    </body>
     
-        <div class="flex items-center gap-3">
-            <a href="/login">
-                <button class="text-white text-sm  md:text-sm rounded font-semibold uppercase border border-rose-700 bg-rose-700 p-2">
-                    Login
-                </button>
-            </a>
-            <a href="/register">
-                <button class="text-xs md:text-sm uppercase font-semibold rounded border border-white p-2">Register</button>
-            </a>
-        </div>
-    </header>
+<% } %>
 
-    <main class="overflow-y-scroll w-dvw p-5 md:p-0 grid lg:grid-cols-2" style="height: calc(100dvh - 5rem);">
-        <section class="hidden md:block h-full bank"></section>
-    
-        <section class="h-full flex items-center justify-center flex-col">
-            <div class="grid place-content-center gap-4 p-4 border-2 border-slate-700 md:w-[70%] rounded">
-                <h1 class="text-center text-rose-700 font-bold text-xl">Register</h1>
-
-                <form action="/auth/register" method="POST" class="flex items-center justify-between flex-wrap gap-2">
-                
-                    <div class="flex flex-col w-full md:w-[48%]">
-                        <label for="firstName" class="text-slate-700 font-medium">First Name</label>
-                        <input type="text" name="firstName" id="firstName" required
-                            class="rounded px-4 py-2 h-11 border border-rose-700 outline-none text-slate-700 w-full">
-                    </div>
-                
-                    <div class="flex flex-col w-full md:w-[48%]">
-                        <label for="lastName" class="text-slate-700 font-medium">Last Name</label>
-                        <input type="text" name="lastName" id="lastName" required
-                            class="rounded px-4 py-2 h-11 border border-rose-700 outline-none text-slate-700 w-full">
-                    </div>
-                
-                    <div class="flex flex-col w-full md:w-[48%]">
-                        <label for="email" class="text-slate-700 font-medium">Email</label>
-                        <input type="email" name="email" id="email" required
-                            class="rounded px-4 py-2 h-11 border border-rose-700 outline-none text-slate-700 w-full">
-                    </div>
-
-                    <div class="flex flex-col w-full md:w-[48%]">
-                        <label for="phoneNumber" class="text-slate-700 font-medium">Phone Number</label>
-                        <input type="text" name="phoneNumber" id="phoneNumber" required
-                            class="rounded px-4 py-2 h-11 border border-rose-700 outline-none text-slate-700 w-full">
-                    </div>
-
-                    <div class="flex flex-col w-full md:w-[48%]">
-                        <label for="dateOfBirth" class="text-slate-700 font-medium">Date of Birth</label>
-                        <input type="date" name="dateOfBirth" id="dateOfBirth" required
-                            class="rounded px-4 py-2 h-11 border border-rose-700 outline-none text-slate-700 w-full">
-                    </div>
-
-                    <div class="flex flex-col w-full md:w-[48%]">
-                        <label for="address" class="text-slate-700 font-medium">Address</label>
-                        <input type="text" name="address" id="address" required
-                            class="rounded px-4 py-2 h-11 border border-rose-700 outline-none text-slate-700 w-full">
-                    </div>
-
-                    <div class="flex flex-col w-full md:w-[48%]">
-                        <label for="username" class="text-slate-700 font-medium">Username</label>
-                        <input type="text" name="username" id="username" required
-                            class="rounded px-4 py-2 h-11 border border-rose-700 outline-none text-slate-700 w-full">
-                    </div>
-                
-                    <div class="flex flex-col w-full md:w-[48%]">
-                        <label for="password" class="text-slate-700 font-medium">Password</label>
-                        <input type="password" name="password" id="password" required
-                            class="rounded px-4 py-2 h-11 border border-rose-700 outline-none text-slate-700 w-full">
-                    </div>
-                
-                    <div class="flex flex-col w-full md:w-[48%]">
-                        <label for="customerId" class="text-slate-700 font-medium">Customer ID</label>
-                        <input type="text" name="customerId" id="customerId" required
-                            class="rounded px-4 py-2 h-11 border border-rose-700 outline-none text-slate-700 w-full">
-                    </div>
-                
-                    <div class="flex flex-col w-full md:w-[48%]">
-                        <label for="accountNumber" class="text-slate-700 font-medium">Account Number</label>
-                        <input type="text" name="accountNumber" id="accountNumber" required
-                            class="rounded px-4 py-2 h-11 border border-rose-700 outline-none text-slate-700 w-full">
-                    </div>
-                
-                
-                    <div class="flex">
-                        <button type="submit"
-                            class="w-full px-5 text-center bg-rose-700 text-white rounded h-11">Submit</button>
-                    </div>
-                </form>
+<% if (isAuthenticated) { %>
+    <body class="min-h-dvh">
+        <header class="bg-slate-700 text-white p-5 flex items-center justify-between h-20 bg-">
+            <div class="flex items-center gap-1">
+                <span class="material-symbols-rounded">account_balance</span>
+                <h1 class="text-xl md:text-2xl font-bold">Unity Bank</h1>
             </div>
     
-            <div class="text-center mt-2">
-                Got an account already? <a class="font-bold text-rose-700" href="/login">Log in</a> instead.
+            <div class="flex items-center gap-3">
+                <a href="/login">
+                    <button
+                        class="text-white text-sm  md:text-sm rounded font-semibold uppercase border border-rose-700 bg-rose-700 p-2">
+                        Login
+                    </button>
+                </a>
+                <a href="/register">
+                    <button
+                        class="text-xs md:text-sm uppercase font-semibold rounded border border-white p-2">Register</button>
+                </a>
             </div>
-        </section>
-    </main>
+        </header>
+    
+        <main class="overflow-y-scroll w-dvw p-5 md:p-0 grid lg:grid-cols-2" style="height: calc(100dvh - 5rem);">
+            <section class="hidden md:block h-full bank"></section>
+    
+            <section class="h-full flex items-center justify-center flex-col">
+                <div class="grid place-content-center gap-4 p-4 border-2 border-slate-700 md:w-[70%] rounded">
+                    <h1 class="text-center text-rose-700 font-bold text-xl">Register</h1>
+    
+                    <form action="/auth/register" method="POST" class="flex items-center justify-between flex-wrap gap-2">
+    
+                        <div class="flex flex-col w-full md:w-[48%]">
+                            <label for="firstName" class="text-slate-700 font-medium">First Name</label>
+                            <input type="text" name="firstName" id="firstName" required
+                                class="rounded px-4 py-2 h-11 border border-rose-700 outline-none text-slate-700 w-full">
+                        </div>
+    
+                        <div class="flex flex-col w-full md:w-[48%]">
+                            <label for="lastName" class="text-slate-700 font-medium">Last Name</label>
+                            <input type="text" name="lastName" id="lastName" required
+                                class="rounded px-4 py-2 h-11 border border-rose-700 outline-none text-slate-700 w-full">
+                        </div>
+    
+                        <div class="flex flex-col w-full md:w-[48%]">
+                            <label for="email" class="text-slate-700 font-medium">Email</label>
+                            <input type="email" name="email" id="email" required
+                                class="rounded px-4 py-2 h-11 border border-rose-700 outline-none text-slate-700 w-full">
+                        </div>
+    
+                        <div class="flex flex-col w-full md:w-[48%]">
+                            <label for="phoneNumber" class="text-slate-700 font-medium">Phone Number</label>
+                            <input type="text" name="phoneNumber" id="phoneNumber" required
+                                class="rounded px-4 py-2 h-11 border border-rose-700 outline-none text-slate-700 w-full">
+                        </div>
+    
+                        <div class="flex flex-col w-full md:w-[48%]">
+                            <label for="dateOfBirth" class="text-slate-700 font-medium">Date of Birth</label>
+                            <input type="date" name="dateOfBirth" id="dateOfBirth" required
+                                class="rounded px-4 py-2 h-11 border border-rose-700 outline-none text-slate-700 w-full">
+                        </div>
+    
+                        <div class="flex flex-col w-full md:w-[48%]">
+                            <label for="address" class="text-slate-700 font-medium">Address</label>
+                            <input type="text" name="address" id="address" required
+                                class="rounded px-4 py-2 h-11 border border-rose-700 outline-none text-slate-700 w-full">
+                        </div>
+    
+                        <div class="flex flex-col w-full md:w-[48%]">
+                            <label for="username" class="text-slate-700 font-medium">Username</label>
+                            <input type="text" name="username" id="username" required
+                                class="rounded px-4 py-2 h-11 border border-rose-700 outline-none text-slate-700 w-full">
+                        </div>
+    
+                        <div class="flex flex-col w-full md:w-[48%]">
+                            <label for="password" class="text-slate-700 font-medium">Password</label>
+                            <input type="password" name="password" id="password" required
+                                class="rounded px-4 py-2 h-11 border border-rose-700 outline-none text-slate-700 w-full">
+                        </div>
+    
+                        <div class="flex flex-col w-full md:w-[48%]">
+                            <label for="customerId" class="text-slate-700 font-medium">Customer ID</label>
+                            <input type="text" name="customerId" id="customerId" required
+                                class="rounded px-4 py-2 h-11 border border-rose-700 outline-none text-slate-700 w-full">
+                        </div>
+    
+                        <div class="flex flex-col w-full md:w-[48%]">
+                            <label for="accountNumber" class="text-slate-700 font-medium">Account Number</label>
+                            <input type="text" name="accountNumber" id="accountNumber" required
+                                class="rounded px-4 py-2 h-11 border border-rose-700 outline-none text-slate-700 w-full">
+                        </div>
+    
+    
+                        <div class="flex">
+                            <button type="submit"
+                                class="w-full px-5 text-center bg-rose-700 text-white rounded h-11">Submit</button>
+                        </div>
+                    </form>
+                </div>
+    
+                <div class="text-center mt-2">
+                    Got an account already? <a class="font-bold text-rose-700" href="/login">Log in</a> instead.
+                </div>
+            </section>
+        </main>
+    
+    </body>
+<% } %>
 
-</body>
 
 </html>

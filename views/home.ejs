@@ -18,80 +18,89 @@
     </style>
 </head>
 
-<body class="min-h-dvh">
-    <header class="bg-slate-700 text-white p-5 flex items-center justify-between h-20 bg-">
-        <div class="flex items-center gap-1">
-            <span class="material-symbols-rounded">account_balance</span>
-            <h1 class="text-xl md:text-2xl font-bold">Unity Bank</h1>
-        </div>
-    
-        <div class="flex items-center gap-3 text-xs">
-            <a href="#" class="hidden md:block font-bold">HOME</a>
-            <a href="#" class="hidden md:block ">ABOUT</a>
-            <a href="#" class="hidden md:block ">ACCOUNT</a>
-            <a href="/login">
-                <button class="text-white text-sm rounded font-semibold uppercase border border-rose-700 bg-rose-700 p-2">
-                    Logout
-                </button>
-            </a>
-        </div>
-    </header>
-
-    <section style="height: calc(100dvh - 5rem);" class="overflow-y-scroll flex items-center justify-center gap-3 p-5 md:p-10">
-        <div class="rounded border-2 border-slate-700 w-96 h-full overflow-y-scroll flex flex-col items-center gap-3 p-4">
-            <div class="flex flex-col items-center w-full">
-                <img src="/assets/user.svg" alt="user" class="w-20">
-                <div class="rounded bg-slate-700 uppercase text-white font-semibold p-2 mt-1">
-                    <%= `${customer.firstName} ${customer.lastName}` %>
-                </div>
-                <p class="italic text-rose-700"><%= customer.username %></p>
-
-                <div class="mt-1 w-full grid gap-2">
-                    <div class="w-full">
-                        <p class="text-sm font-semibold text-rose-700">Account Number</p>
-                        <p class="border border-rose-700 text-slate-700 rounded font-medium p-1">
-                            <%= customer.accountNumber %>
-                        </p>
-                    </div>
-
-                    <div class="w-full">
-                        <p class="text-sm font-semibold text-rose-700">Date of Birth</p>
-                        <p class="border border-rose-700 text-slate-700 rounded font-medium p-1">
-                            <%= customer.dateOfBirth.toLocaleString().split(',')[0] %>
-                        </p>
-                    </div>
-
-                    <div class="w-full">
-                        <p class="text-sm font-semibold text-rose-700">Email</p>
-                        <p class="border border-rose-700 text-slate-700 rounded font-medium p-1"><%= customer.email %></p>
-                    </div>
-
-                    <div class="w-full">
-                        <p class="text-sm font-semibold text-rose-700">Address</p>
-                        <p class="border border-rose-700 text-slate-700 rounded font-medium p-1">
-                            <%= customer.address %>
-                        </p>
-                    </div>
-
-                    <div class="w-full">
-                        <p class="text-sm font-semibold text-rose-700">Phone Number</p>
-                        <p class="border border-rose-700 text-slate-700 rounded font-medium p-1">
-                            <%= customer.phoneNumber %>
-                        </p>
-                    </div>
-                    
-                    <div class="w-full">
-                        <p class="text-sm font-semibold text-rose-700">Customer ID</p>
-                        <p class="border border-rose-700 text-slate-700 rounded font-medium p-1">
-                            <%= customer.customerId %>
-                        </p>
-                    </div>
-                </div>
+    <body class="min-h-dvh">
+        <header class="bg-slate-700 text-white p-5 flex items-center justify-between h-20 bg-">
+            <div class="flex items-center gap-1">
+                <span class="material-symbols-rounded">account_balance</span>
+                <h1 class="text-xl md:text-2xl font-bold">Unity Bank</h1>
             </div>
+    
+            <div class="flex items-center gap-3 text-xs">
+                <a href="#" class="hidden md:block font-bold">HOME</a>
+                <a href="#" class="hidden md:block ">ABOUT</a>
+                <a href="#" class="hidden md:block ">ACCOUNT</a>
+                <a href="/login">
+                    <button
+                        class="text-white text-sm rounded font-semibold uppercase border border-rose-700 bg-rose-700 p-2">
+                        Logout
+                    </button>
+                </a>
+            </div>
+        </header>
+    
+        <section style="height: calc(100dvh - 5rem);"
+            class="overflow-y-scroll flex items-center justify-center gap-3 p-5 md:p-10">
+            <div
+                class="rounded border-2 border-slate-700 w-96 h-full overflow-y-scroll flex flex-col items-center gap-3 p-4">
+                <div class="flex flex-col items-center w-full">
+                    <img src="/assets/user.svg" alt="user" class="w-20">
+                    <div class="rounded bg-slate-700 uppercase text-white font-semibold p-2 mt-1">
+                        <%= `${customer.firstName} ${customer.lastName}` %>
+                    </div>
+                    <p class="italic text-rose-700">
+                        <%= customer.username %>
+                    </p>
+    
+                    <div class="mt-1 w-full grid gap-2">
+                        <div class="w-full">
+                            <p class="text-sm font-semibold text-rose-700">Account Number</p>
+                            <p class="border border-rose-700 text-slate-700 rounded font-medium p-1">
+                                <%= customer.accountNumber %>
+                            </p>
+                        </div>
+    
+                        <div class="w-full">
+                            <p class="text-sm font-semibold text-rose-700">Date of Birth</p>
+                            <p class="border border-rose-700 text-slate-700 rounded font-medium p-1">
+                                <%= customer.dateOfBirth.toLocaleString().split(',')[0] %>
+                            </p>
+                        </div>
+    
+                        <div class="w-full">
+                            <p class="text-sm font-semibold text-rose-700">Email</p>
+                            <p class="border border-rose-700 text-slate-700 rounded font-medium p-1">
+                                <%= customer.email %>
+                            </p>
+                        </div>
+    
+                        <div class="w-full">
+                            <p class="text-sm font-semibold text-rose-700">Address</p>
+                            <p class="border border-rose-700 text-slate-700 rounded font-medium p-1">
+                                <%= customer.address %>
+                            </p>
+                        </div>
+    
+                        <div class="w-full">
+                            <p class="text-sm font-semibold text-rose-700">Phone Number</p>
+                            <p class="border border-rose-700 text-slate-700 rounded font-medium p-1">
+                                <%= customer.phoneNumber %>
+                            </p>
+                        </div>
+    
+                        <div class="w-full">
+                            <p class="text-sm font-semibold text-rose-700">Customer ID</p>
+                            <p class="border border-rose-700 text-slate-700 rounded font-medium p-1">
+                                <%= customer.customerId %>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </section>
+    
+    </body>
 
-        </div>
-    </section>
 
-</body>
 
 </html>

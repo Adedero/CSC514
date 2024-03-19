@@ -44,7 +44,7 @@ app.get('/login', (req, res) => {
     res.render('login', { message: null });
 })
 app.get('/register', (req, res) => {
-    res.render('register');
+    res.render('register', { isAuthenticated: false });
 })
 
 app.get('/home', (req, res) => {

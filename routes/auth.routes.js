@@ -51,7 +51,7 @@ router.post('/payments', async(req, res) => {
             })
             return
         }
-        res.render('register')
+        res.render('register', { isAuthenticated: true })
     } catch (error) {
         console.error(error)
          res.status(500).send(error)
