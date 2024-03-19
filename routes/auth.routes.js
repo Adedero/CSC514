@@ -15,9 +15,9 @@ router.post('/register', async(req, res) => {
         } */
         const customer = new Customer(req.body)
         await customer.save()
-        return res.render('login', { message: 'Please log in.' })
+        res.render('login', { message: 'Please log in.' })
     } catch (error) {
-        return res.status(500).send(error)
+        res.status(500).send(error)
     }
 });
 
@@ -28,14 +28,14 @@ router.post('/login', async(req, res) => {
             password: req.body.password
         })
         if (customer) {
-            return res.render('home', {customer})
+            res.render('home', {customer})
         } else {
-            return res.render('login', {
+            res.render('login', {
                 message: 'Wrong username or password'
             })
         }
     } catch (error) {
-        return res.status(500).send(error)
+        res.status(500).send(error)
     }
 })
 
@@ -44,15 +44,14 @@ router.post('/payments', async(req, res) => {
     try {
         const user = await User.findOne({ name: value })
         if (!user) {
-            return res.status(404).redirect('/', {
+             res.status(404).render('index', {
                 message: 'No paid user with this name exists. Have you paid your N1000?'
             })
         }
-
-        return res.redirect('/register')
+        res.render('register')
     } catch (error) {
         console.error(error)
-        return res.status(500).send(error)
+         res.status(500).send(error)
     }
 })
 module.exports = router
