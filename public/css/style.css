@@ -544,10 +544,6 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.fixed {
-  position: fixed;
-}
-
 .absolute {
   position: absolute;
 }
@@ -562,10 +558,6 @@ video {
 
 .top-16 {
   top: 4rem;
-}
-
-.top-32 {
-  top: 8rem;
 }
 
 .mt-1 {
@@ -608,6 +600,18 @@ video {
   height: 100%;
 }
 
+.h-32 {
+  height: 8rem;
+}
+
+.h-40 {
+  height: 10rem;
+}
+
+.h-56 {
+  height: 14rem;
+}
+
 .min-h-dvh {
   min-height: 100dvh;
 }
@@ -616,16 +620,12 @@ video {
   width: 5rem;
 }
 
-.w-80 {
-  width: 20rem;
-}
-
 .w-96 {
   width: 24rem;
 }
 
-.w-\[70\%\] {
-  width: 70%;
+.w-\[80dvw\] {
+  width: 80dvw;
 }
 
 .w-dvw {
@@ -641,20 +641,8 @@ video {
   width: 100%;
 }
 
-.w-\[25rem\] {
-  width: 25rem;
-}
-
-.w-\[70dv\] {
-  width: 70dv;
-}
-
-.w-\[70dvw\] {
-  width: 70dvw;
-}
-
-.w-\[80dvw\] {
-  width: 80dvw;
+.w-\[90dvw\] {
+  width: 90dvw;
 }
 
 .-translate-x-1\/2 {
@@ -733,6 +721,11 @@ video {
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 
+.bg-green-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
+}
+
 .bg-rose-700 {
   --tw-bg-opacity: 1;
   background-color: rgb(190 18 60 / var(--tw-bg-opacity));
@@ -747,10 +740,6 @@ video {
   padding: 0.25rem;
 }
 
-.p-10 {
-  padding: 2.5rem;
-}
-
 .p-2 {
   padding: 0.5rem;
 }
@@ -761,6 +750,10 @@ video {
 
 .p-5 {
   padding: 1.25rem;
+}
+
+.p-3 {
+  padding: 0.75rem;
 }
 
 .px-4 {
@@ -862,28 +855,28 @@ video {
     display: block;
   }
 
+  .md\:hidden {
+    display: none;
+  }
+
   .md\:h-full {
     height: 100%;
+  }
+
+  .md\:w-80 {
+    width: 20rem;
+  }
+
+  .md\:w-96 {
+    width: 24rem;
   }
 
   .md\:w-\[48\%\] {
     width: 48%;
   }
 
-  .md\:w-auto {
-    width: auto;
-  }
-
   .md\:w-\[70\%\] {
     width: 70%;
-  }
-
-  .md\:w-\[30rem\] {
-    width: 30rem;
-  }
-
-  .md\:grid-cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .md\:p-0 {
@@ -894,8 +887,9 @@ video {
     padding: 2.5rem;
   }
 
-  .md\:p-4 {
-    padding: 1rem;
+  .md\:px-5 {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 
   .md\:text-2xl {
@@ -908,23 +902,28 @@ video {
     line-height: 1.25rem;
   }
 
-  .md\:text-base {
-    font-size: 1rem;
-    line-height: 1.5rem;
+  @media (min-width: 1024px) {
+    .md\:lg\:block {
+      display: block;
+    }
   }
 }
 
 @media (min-width: 1024px) {
+  .lg\:mt-0 {
+    margin-top: 0px;
+  }
+
   .lg\:block {
     display: block;
   }
 
-  .lg\:h-full {
-    height: 100%;
+  .lg\:grid {
+    display: grid;
   }
 
-  .lg\:w-\[70\%\] {
-    width: 70%;
+  .lg\:h-full {
+    height: 100%;
   }
 
   .lg\:grid-cols-2 {
@@ -933,5 +932,14 @@ video {
 
   .lg\:p-0 {
     padding: 0px;
+  }
+
+  .lg\:p-5 {
+    padding: 1.25rem;
+  }
+
+  .lg\:px-5 {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 }

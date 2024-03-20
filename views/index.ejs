@@ -5,7 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <title>Security</title>
+    <title>Login</title>
+    <style>
+        .bank {
+            background-image: url(/assets/bank.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 0 -13rem;
+        }
+    </style>
 </head>
 <body class="min-h-dvh">
     <header class="bg-slate-700 text-white p-5 flex items-center justify-between h-20 bg-">
@@ -13,34 +21,54 @@
             <span class="material-symbols-rounded">account_balance</span>
             <h1 class="text-2xl font-bold">Unity Bank</h1>
         </div>
+
+        <div class="flex items-center gap-3">
+            <a href="/">
+                <button
+                    class="text-white text-sm  md:text-sm rounded font-semibold uppercase border border-rose-700 bg-rose-700 p-2">
+                    Login
+                </button>
+            </a>
+            <a href="/register">
+                <button class="text-xs md:text-sm uppercase font-semibold rounded border border-white p-2">Register</button>
+            </a>
+        </div>
     </header>
 
-    <% if (message) { %>
-        <div class="w-fit p-4 bg-rose-700 rounded text-white text-center fixed left-1/2 -translate-x-1/2 top-32">
-            <%= message %>
-        </div>
-    <% } %>
 
-    <main class="w-dvw grid place-content-center" style="height: calc(100dvh - 5rem);">
-        <section class="h-full grid place-content-center relative">
-            <div class="grid place-content-center gap-4 h-80 border-2 border-slate-700 w-96 rounded">
-                <h1 class="text-center text-rose-700 font-bold text-xl">Check Status</h1>
-                <form action="/auth/payments" method="POST">
-                    <div class="flex flex-col gap-1">
-                        <label for="name" class="text-slate-700 font-medium">Surname</label>
-                        <input type="text" name="name" id="name" required placeholder="Enter your surname"
-                            class="rounded px-4 py-2 h-11 border border-slate-700 outline-none text-slate-700 w-80">
+    <main class="p-5 lg:p-0 w-dvw lg:grid lg:grid-cols-2" style="height: calc(100dvh - 5rem);">
+        <section class="h-40 md:hidden lg:block md:h-full bank"></section>
+
+        <section class="mt-5 lg:mt-0 lg:h-full grid place-content-center relative">
+            <% if (message) { %>
+                <div class="w-fit p-4 bg-rose-700 rounded text-white text-center absolute left-1/2 -translate-x-1/2 top-16">
+                    <%= message %>
+                </div>
+            <% } %>
+            <div class="flex flex-col items-center justify-center p-3 gap-4 h-80 border-2 border-slate-700 w-[90dvw] md:w-96 rounded">
+                <h1 class="text-center text-rose-700 font-bold text-xl">Login</h1>
+                <form action="/auth/login" method="POST" class="w-full md:px-5">
+                    <div class="flex flex-col gap-1 w-full">
+                        <label for="username" class="text-slate-700 font-medium">Username</label>
+                        <input type="text" name="username" id="username" required
+                            class="rounded px-4 py-2 h-11 border border-slate-700 outline-none text-slate-700 w-full">
                     </div>
-
-                    <div class="flex mt-5">
+            
+                    <div class="flex flex-col gap-1 mt-5 w-full">
+                        <label for="password" class="text-slate-700 font-medium">Password</label>
+                        <input type="password" name="password" id="password" required
+                            class="rounded px-4 py-2 h-11 border border-slate-700 outline-none text-slate-700 w-full">
+                    </div>
+            
+                    <div class="flex mt-5 w-full">
                         <button type="submit"
-                            class="w-full text-center bg-slate-700 text-white rounded h-11 hover:bg-rose-700 transition-colors">Check</button>
+                            class="w-full text-center bg-slate-700 text-white rounded h-11 hover:bg-rose-700 transition-colors">Submit</button>
                     </div>
                 </form>
             </div>
 
             <div class="text-center mt-2">
-                Can't access the login page? <a class="font-bold text-rose-700" href="https://wa.me/2348069775012?text=I'm%20want%20to%20pay%20the%20N1000">Pay your N1000</a> instead.
+                Don't have an account? <a class="font-bold text-rose-700" href="/register">Register</a> instead.
             </div>
         </section>
     </main>
