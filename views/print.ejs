@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Print</title>
+    <style>
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+                height: 297mm;
+                width: 210mm;
+            }
+
+            .header {
+                display: none;
+            }
+
+            .page {
+                border: 0;
+            }
+        }
+    </style>
+</head>
+<body class="p-5 grid gap-10">
+    <header class="header">
+        <button type="button" class="bg-rose-700 rounded p-2 text-white mb-2" onclick="window.print()">Print</button>
+    </header>
+    
+    <% customers.forEach(customer => { %>
+        <main class="grid gap-5">
+            <div class="w-[210mm] h-[297mm] py-7 px-5 border-2 page">
+                <header>
+                    <h1 class="text-center font-bold">CSC 514 PRACTICAL REPORT</h1>
+                    <div class="grid grid-cols-2 gap-2 mt-4 text-sm">
+                        <div class="grid grid-cols-4 justify-between">
+                            <p>NAME:</p>
+                            <p class="col-span-3 uppercase font-bold">
+                                <%= `${customer.lastName.trim()} ${customer.firstName.trim()}` %>
+                            </p>
+                        </div>
+        
+                        <div class="grid grid-cols-4 justify-between">
+                            <p>REG. NO.:</p>
+                            <p class="col-span-3 uppercase font-bold">
+                                <%= customer.regNumber %>
+                            </p>
+                        </div>
+        
+                        <div class="grid grid-cols-4 justify-between">
+                            <p>DEPT.:</p>
+                            <p class="col-span-3 uppercase font-bold">COMPUTER SCIENCE</p>
+                        </div>
+        
+                        <div class="grid grid-cols-4 justify-between">
+                            <p>SERIAL NO.:</p>
+                            <p class="col-span-3 uppercase font-bold">
+                                <%= customer.serialNumber %>
+                            </p>
+                        </div>
+        
+                        <div class="grid grid-cols-4 justify-between">
+                            <p>COURSE:</p>
+                            <p class="col-span-3 uppercase font-bold">CSC 514 PRACTICAL</p>
+                        </div>
+        
+                        <div class="grid grid-cols-4 justify-between">
+                            <p>GROUP:</p>
+                            <p class="col-span-3 uppercase font-bold">HTML/CSS/JAVASCRIPT</p>
+                        </div>
+                    </div>
+        
+                    <p class="font-bold text-sm mt-8">PROJECT: To design the login, registration, and home pages for an Online
+                        Banking System.</p>
+                    <div class="mt-3 text-sm grid gap-2">
+                        <p class="font-bold">SOLUTION</p>
+                        <p>Languages used:</p>
+                        <ul class="ml-5">
+                            <li> 1. Front-end: HTML, CSS, TailwindCSS</li>
+                            <li> 2. Back-end: Node.js, Express.js, MongoDB</li>
+                        </ul>
+                        <p>Tools: Visual Studio Code</p>
+                    </div>
+                </header>
+        
+                <div class="text-sm mt-5">
+                    <p class="font-bold mb-3">LOGIN PAGE</p>
+                    <img src="/assets/login.png" alt="login">
+                </div>
+            </div>
+            <div class="w-[210mm] h-[297mm] py-7 px-5 border-2 page">
+                <div class="text-sm">
+                    <p class="font-bold mb-3">REGISTRATION PAGE</p>
+                    <img src="/assets/reg.png" alt="login" class="h-96">
+                </div>
+        
+                <p class="font-bold mt-8 mb-3">HOME PAGE</p>
+                <div class="rounded border-2 mt-5 mx-auto border-slate-700 w-96 h-fit flex flex-col items-center gap-3 p-4">
+                    <div class="flex flex-col items-center w-full">
+                        <img src="/assets/user.svg" alt="user" class="w-20">
+                        <div class="rounded bg-slate-700 uppercase text-white font-semibold p-2 mt-1">
+                            <%= `${customer.lastName.trim()} ${customer.firstName.trim()}` %>
+                        </div>
+                        <p class="italic text-rose-700">
+                            <%= customer.username %>
+                        </p>
+        
+                        <div class="mt-1 w-full grid gap-2">
+                            <div class="w-full">
+                                <p class="text-sm font-semibold text-rose-700">Account Number</p>
+                                <p class="border border-rose-700 text-slate-700 rounded font-medium p-1">
+                                    <%= customer.accountNumber %>
+                                </p>
+                            </div>
+        
+                            <div class="w-full">
+                                <p class="text-sm font-semibold text-rose-700">Date of Birth</p>
+                                <p class="border border-rose-700 text-slate-700 rounded font-medium p-1">
+                                    <%= customer.dateOfBirth.toLocaleString().split(',')[0] %>
+                                </p>
+                            </div>
+                            
+                            <div class="w-full">
+                                <p class="text-sm font-semibold text-rose-700">Email</p>
+                                <p class="border border-rose-700 text-slate-700 rounded font-medium p-1">
+                                    <%= customer.email %>
+                                </p>
+                            </div>
+                            
+                            <div class="w-full">
+                                <p class="text-sm font-semibold text-rose-700">Address</p>
+                                <p class="border border-rose-700 text-slate-700 rounded font-medium p-1">
+                                    <%= customer.address %>
+                                </p>
+                            </div>
+                            
+                            <div class="w-full">
+                                <p class="text-sm font-semibold text-rose-700">Phone Number</p>
+                                <p class="border border-rose-700 text-slate-700 rounded font-medium p-1">
+                                    <%= customer.phoneNumber %>
+                                </p>
+                            </div>
+                            
+                            <div class="w-full">
+                                <p class="text-sm font-semibold text-rose-700">Customer ID</p>
+                                <p class="border border-rose-700 text-slate-700 rounded font-medium p-1">
+                                    <%= customer.customerId %>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    <% }); %>
+   
+    
+</body>
+</html>

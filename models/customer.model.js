@@ -10,7 +10,9 @@ const CustomerSchema = new mongoose.Schema({
     phoneNumber: String,
     customerId: String,
     accountNumber: String,
-    password: String
+    password: String,
+    regNumber: Number,
+    serialNumber: Number,
 })
 
 

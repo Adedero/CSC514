@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const ejs = require('ejs');
+const Customer = require('./models/customer.model')
 
 mongoose.connect(process.env.MONGODB_URI)
     .then(() => {
@@ -33,6 +34,15 @@ app.get('/home', (req, res) => {
     res.render('home');
 })
 
+app.get('/print', async (req, res) => {
+    try {
+        const customers = await Customer.find()
+        res.render('print', { customers: customers });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send(error);
+    }
+})
 app.listen(process.env.PORT, () => {
     console.log(`Server running on port ${process.env.PORT}`)
 });
