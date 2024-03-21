@@ -43,6 +43,16 @@ app.get('/print', async (req, res) => {
         res.status(500).send(error);
     }
 })
+
+app.get('/names', async (req, res) => {
+    try {
+        const customers = await Customer.find()
+        res.render('names', { customers: customers });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send(error);
+    }
+})
 app.listen(process.env.PORT, () => {
     console.log(`Server running on port ${process.env.PORT}`)
 });
