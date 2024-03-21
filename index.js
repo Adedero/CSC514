@@ -47,6 +47,7 @@ app.get('/print', async (req, res) => {
 app.get('/names', async (req, res) => {
     try {
         const customers = await Customer.find()
+        customers.sort((a, b) => a.lastName.localeCompare(b.lastName))
         res.render('names', { customers: customers });
     } catch (error) {
         console.error(error);
